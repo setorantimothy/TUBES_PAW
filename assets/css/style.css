@@ -1,0 +1,28 @@
+body{
+    background-color: whitesmoke;
+}
+
+.sidebar {
+    overflow-x: hidden;
+    transition: 0.5s;
+    margin-left: 0;
+}
+.productSection{
+    transition: 0.5s;
+}
+#main {
+    transition: margin-left .5s ease-in-out;
+}
+.toggled {
+    margin-left: -18rem;
+}
+.extendWidth {
+    transition: 0.5s;
+    width: 100vw;
+}
+.carousel-item{
+    width: auto;
+    max-height: 380px;
+    text-align: center;
+    margin: auto;
+}
