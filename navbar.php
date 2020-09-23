@@ -41,10 +41,10 @@
                         ';
                     } else {
                         echo '<li class="nav-item mx-auto">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="'.$base_url.'/login.php">Login</a>
                     </li>
                     <li class="nav-item mx-auto">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="'.$base_url.'/register.php">Register</a>
                     </li>';
                     }
                 ?>   
