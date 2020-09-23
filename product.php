@@ -97,6 +97,7 @@
                                                             <div class="col-md-12">
                                                                 <h6><strong>'.$re['name'].'</strong></h6>
                                                                 <h6 class="text-secondary">Rp. '.number_format($re['price']).'</h6>
+                                                                <button class="btn btn-sm btn-dark btn-block"><i class="fas fa-eye"></i> Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>

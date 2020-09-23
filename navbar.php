@@ -32,7 +32,7 @@
                                 <a class="dropdown-item" href="#">Order</a>
                                 <a class="dropdown-item" href="#">Account</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="'.$base_url.'/logout.php">Logout</a>
                             </div>
                         </li>
                         ';
