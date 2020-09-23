@@ -24,7 +24,14 @@
 
     <!-- CONTENT -->
     <section class="container mt-4 d-flex justify-content-center" id="main">
+        
        <div class="col-md-5 my-4">
+            <?php 
+            if(isset($_SESSION['message']))
+                echo '<div class="alert alert-danger text-center">..Login First..</div>';
+                //init message , when refresh message doesnt show
+                $_SESSION['message']= null;
+            ?>
            <div class="card rounded shadow ">
                <div class="card-header text-white bg-dark"><h5>Login</h5></div>
                <div class="card-body">

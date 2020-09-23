@@ -14,7 +14,7 @@
                     
             <ul class="navbar-nav ml-auto d-flex flex-row">        
                 <li class="nav-item mx-auto">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i>
+                    <a class="nav-link" href="<?=$base_url;?>/cart.php"><i class="fas fa-shopping-cart"></i>
                         <?php
                             if($cartCount > 0 )
                                 echo '<span class="badge badge-pill badge-danger">'.$cartCount.'</span>';

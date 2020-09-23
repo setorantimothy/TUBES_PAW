@@ -1,7 +1,6 @@
 body{
     background-color: whitesmoke;
 }
-
 .sidebar {
     overflow-x: hidden;
     transition: 0.5s;
@@ -25,4 +24,12 @@ body{
     max-height: 380px;
     text-align: center;
     margin: auto;
+}
+.cart-img{
+    max-height: 200px;
+    width: fit-content;
+}
+
+.discount {
+    display: none;
 }

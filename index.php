@@ -74,10 +74,10 @@
                                     while($re  = mysqli_fetch_assoc($query)){
                                         echo '
                                         <div class="col-md-3 col-6 my-2">
-                                            <a href="'.$base_url.'product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
+                                            <a href="'.$base_url.'/product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
                                                 <div class="card">
                                                     <div class="card-body text-center">
-                                                        <img src="assets/img/'.$re['image'].'" class="img-fluid">
+                                                        <img src="assets/img/'.explode(",",$re['image'])[0].'" class="img-fluid">
                                                         <div class="row mt-3">
                                                             <div class="col-md-12">
                                                                 <h6><strong>'.$re['name'].'</strong></h6>
@@ -113,10 +113,10 @@
                                 while($re  = mysqli_fetch_assoc($query)){
                                     echo '
                                     <div class="col-md-3 col-6 my-2">
-                                        <a href="'.$base_url.'product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
+                                        <a href="'.$base_url.'/product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
                                             <div class="card">
                                                 <div class="card-body text-center">
-                                                    <img src="assets/img/'.$re['image'].'" class="img-fluid">
+                                                    <img src="assets/img/'.explode(",",$re['image'])[0].'" class="img-fluid">
                                                     <div class="row mt-3">
                                                         <div class="col-md-12">
                                                             <h6><strong>'.$re['name'].'</strong></h6>

@@ -7,7 +7,7 @@ if($con) {
     session_start();
     //develop, without login
     if(isset($_SESSION['isLogin'])) {
-        $sql = "SELECT COUNT(quantity) as cartCount FROM cart WHERE user_id = ".$_SESSION['user']['id'];
+        $sql = "SELECT SUM(quantity) as cartCount FROM cart WHERE user_id = ".$_SESSION['user']['id'];
         $query = mysqli_query($con,$sql);
         $cartCount = mysqli_fetch_assoc($query)['cartCount'];
     } else {
