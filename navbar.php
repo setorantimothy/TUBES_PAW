@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#"><strong> BRAND NAME</strong></a>
+        <a class="navbar-brand" href="<?=$base_url;?>"><strong> BRAND NAME</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@
                 <li class="nav-item mx-auto">
                     <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i>
                         <?php
-                            if($cekCart > 0 )
+                            if($cartCount > 0 )
                                 echo '<span class="badge badge-pill badge-danger">'.$cekCart.'</span>';
                         ?>
                     </a>
