@@ -60,51 +60,66 @@
                     <div id="newArrival">
                         <div class="d-flex justify-content-between container my-4">
                             <h4>New Arrival</h4>
-                            <button class="btn btn-sm btn-secondary px-3">more</button>
+                            <a href="<?=$base_url;?>/product.php"><button class="btn btn-sm btn-secondary px-3">more</button></a>
                         </div>
 
                         <div class="row my-4">
-                            <?php
-                                for($i=1;$i<=4;$i++){
-                                    echo '
-                                    <div class="col-md-3 col-6 my-2">
-                                        <a href="#" style="text-decoration: none;color:black">
-                                            <div class="card">
-                                                <div class="card-body text-center">
-                                                    <img src="assets/img/user.jpg" class="img-fluid">
-                                                    <div class="row mt-3">
-                                                        <div class="col-md-12">
-                                                            <h6><strong>nama produk</strong></h6>
-                                                            <h6 class="text-secondary">Rp. 180.000</h6>
+                        <?php
+                                $sql = "SELECT * FROM PRODUCT  ORDER BY id DESC LIMIT 4";
+                                $query = mysqli_query($con,$sql);
+                                $n = mysqli_num_rows($query);
+                                if($n<1){
+                                    echo '<div class="text-center m-auto"><h3>--Produk tidak ditemukan--</h3></div>';
+                                } else {
+                                    while($re  = mysqli_fetch_assoc($query)){
+                                        echo '
+                                        <div class="col-md-3 col-6 my-2">
+                                            <a href="'.$base_url.'product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <img src="assets/img/'.$re['image'].'" class="img-fluid">
+                                                        <div class="row mt-3">
+                                                            <div class="col-md-12">
+                                                                <h6><strong>'.$re['name'].'</strong></h6>
+                                                                <h6 class="text-secondary">Rp. '.number_format($re['price']).'</h6>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    ';
-                                }
+                                            </a>
+                                        </div>
+                                        ';
+                                    }
+                                }           
                             ?>
                         </div>
                     </div>
+                    
                     <div id="recommend" class="mt-5">
                         <div class="d-flex justify-content-between container">
-                            <h4>Recommend</h4>
-                            <button class="btn btn-sm btn-secondary px-3">more</button>
+                            <h4>Recommended</h4>
+                            <a href="<?=$base_url;?>/category/index.php?category=hot_sale"><button class="btn btn-sm btn-secondary px-3">more</button></a>
                         </div>
                         <div class="row my-4">
-                            <?php
-                                for($i=1;$i<=4;$i++){
+                        <?php
+                            $sql = "SELECT * FROM PRODUCT ORDER BY RAND() LIMIT 4";
+                            $query = mysqli_query($con,$sql);
+                            $n = mysqli_num_rows($query);
+                            if($n<1){
+                                echo '<div class="text-center m-auto"><h3>--Produk tidak ditemukan--</h3></div>';
+                            } else {
+                                
+                                while($re  = mysqli_fetch_assoc($query)){
                                     echo '
                                     <div class="col-md-3 col-6 my-2">
-                                        <a href="#" style="text-decoration: none;color:black">
+                                        <a href="'.$base_url.'product_detail.php?id='.$re['id'].'" style="text-decoration: none;color:black">
                                             <div class="card">
                                                 <div class="card-body text-center">
-                                                    <img src="assets/img/user.jpg" class="img-fluid">
+                                                    <img src="assets/img/'.$re['image'].'" class="img-fluid">
                                                     <div class="row mt-3">
                                                         <div class="col-md-12">
-                                                            <h6><strong>nama produk</strong></h6>
-                                                            <h6 class="text-secondary">Rp. 180.000</h6>
+                                                            <h6><strong>'.$re['name'].'</strong></h6>
+                                                            <h6 class="text-secondary">Rp. '.number_format($re['price']).'</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,7 +128,11 @@
                                     </div>
                                     ';
                                 }
-                            ?>
+                            }
+
+                            
+                        ?>
+                        </div>
                         </div>
                     </div>
                 </div>

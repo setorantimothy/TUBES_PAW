@@ -7,12 +7,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ml-auto">
-            <div class="input-group input-group-sm">
-                    <input type="search" class="form-control" placeholder="search something..." style="background-color:whitesmoke;width:300px">
-                    <div class="input-group-append">
-                        <span class="input-group-text bg-dark"><i class="fas fa-search text-white"></i></span>
-                    </div>
-                </div>  
+                <form action="<?=$base_url;?>/product.php" method="get">
+                    <input type="search" name="q" class="form-control" placeholder="search something..." style="background-color:whitesmoke;width:300px">
+                </form>
             </div>
                     
             <ul class="navbar-nav ml-auto d-flex flex-row">        

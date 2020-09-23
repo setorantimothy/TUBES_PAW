@@ -8,7 +8,7 @@
             <hr class="bg-light mb-5">
             <ul class="container ml-3" style="list-style: none;">
                 <li class="my-4">
-                    <a href="<?=$base_url;?>/category/index.php?category=new_arrival" class="<?php if($activeCategory=="new_arrival")echo 'bg-secondary p-1';?> text-white">New Arrival </a>
+                    <a href="<?=$base_url;?>/product.php" class="<?php if($activeCategory=="new_arrival")echo 'bg-secondary p-1';?> text-white">New Arrival </a>
                 </li>
                 <li class="my-4">
                     <a href="<?=$base_url;?>/category/index.php?category=populer" class="<?php if($activeCategory=="populer")echo 'bg-secondary p-1';?> text-white">Populer</a>
