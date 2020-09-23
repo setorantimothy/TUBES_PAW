@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2020 at 03:17 PM
+-- Generation Time: Sep 23, 2020 at 05:29 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -114,6 +114,17 @@ CREATE TABLE `product` (
   `category_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `image`, `category_id`) VALUES
+(1, 'test aja', 500000, 'test aja', '1.jpg', 2),
+(3, 'test 1 ', 1244123, '', 'user.jpg', 3),
+(6, '2 test', 543543, '12312321', '2.jpg', 2),
+(7, 'd324', 543543, '12312321', '3.jpg', 2),
+(8, '334', 543543, '45000', 'user.jpg', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -126,8 +137,20 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `phone_number` varchar(15) DEFAULT NULL,
-  `address` text DEFAULT NULL
+  `address` text DEFAULT NULL,
+  `is_verified` int(1) NOT NULL DEFAULT 0,
+  `is_admin` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone_number`, `address`, `is_verified`, `is_admin`) VALUES
+(1, 'Ferris Byers', 'xefazud@mailinator.com', '$2y$10$v7xGqNj1L5USMh/dt6tTqOAw6lI21D/IjBAxeluZXg3SamMt7jQcq', '+1 (657) 522-69', NULL, 0, 0),
+(2, 'Karina Adkins', 'tusiged@mailinator.com', '$2y$10$bj2DAKRw.SL4RlKKRiyr.OmieX4XV6Tg0bU7jwU80bN5TbwWScyu6\r\n\r\n$2y$10$wBQKdMpGFzqtkPeQb/JhYOnaXKwTHAnB3fIKVxc0jj.HGr9s/yy36', '+1 (982) 881-11', NULL, 0, 0),
+(3, 'Jamalia Oneill', 'zyxywudax@mailinator.com', '$2y$10$Sxl3nL0chanAqptBpgzByu2FZzyAJhZQamImi48yevNh7BCCXxm1i', '+1 (315) 454-37', NULL, 0, 0),
+(4, 'Kai Sharpe', 'duda@mailinator.com', '$2y$10$UDviotGnsKlHum8uCn1Eue9mFy6lEdsq4/RCG.r4KLvalhFuOMuxq', '+1 (584) 367-95', NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -222,13 +245,13 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `variance`
