@@ -28,7 +28,7 @@
            <div class="card rounded shadow">
                <div class="card-header text-white bg-info"><h5>Register</h5></div>
                <div class="card-body">
-                    <form action="<?=$base_url;?>/proses/prosesRegister.php" method="post">
+                    <form action="<?=$base_url;?>/proses/registerProses.php" method="post">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" required class="form-control" id="name" name="name" placeholder="your name">
@@ -45,11 +45,11 @@
                         <div class="input-group mb-3">
                             <input type="password" required class="form-control" id="password" name="password" placeholder="your password">
                             <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-eye-slash" onclick="showPassword()"></i></span>
+                                <span class="input-group-text"><i class="fas fa-eye" onclick="showPassword()"></i></span>
                             </div>
                         </div>
                         
-                        <button class="btn btn-block w-60 btn-info mb-1">Sign Up</button>
+                        <button class="btn btn-block w-60 btn-info mb-1" type="submit" name="btn">Sign Up</button>
                         <span>Already have account ? <a href="<?=$base_url;?>/login.php">login</a></span>
 
                     </form>

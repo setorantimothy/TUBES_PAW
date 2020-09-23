@@ -20,16 +20,16 @@
                     <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i>
                         <?php
                             if($cartCount > 0 )
-                                echo '<span class="badge badge-pill badge-danger">'.$cekCart.'</span>';
+                                echo '<span class="badge badge-pill badge-danger">'.$cartCount.'</span>';
                         ?>
                     </a>
                 </li>
                 <?php
-                    if(isset($_SESSION['user'])){
+                    if(isset($_SESSION['isLogin'])){
                         echo '
                         <li class="nav-item dropdown mx-auto">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
-                                '.$_SESSION['user'].'
+                                '.$_SESSION['user']['name'].'
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Order</a>

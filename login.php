@@ -35,13 +35,13 @@
                         </div>
                         <label for="password">Password</label>
                         <div class="input-group mb-3">
-                            <input type="password" required class="form-control" id="repass" name="repass" placeholder="your password">
+                            <input type="password" required class="form-control" id="password" name="password" placeholder="your password">
                             <div class="input-group-append" onclick="showPassword()">
-                                <span class="input-group-text"><i class="fas fa-eye-slash" ></i></span>
+                                <span class="input-group-text"><i class="fas fa-eye" ></i></span>
                             </div>
                         </div>
                         
-                        <button class="btn btn-block w-60 btn-dark mb-1">Sign Up</button>
+                        <button class="btn btn-block w-60 btn-dark mb-1" type="submit" name="btn">Sign In</button>
                         <span>Doesn't have account ? <a href="<?=$base_url;?>/register.php">register</a></span>
 
                     </form>
