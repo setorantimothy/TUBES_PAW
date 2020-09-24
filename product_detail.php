@@ -48,7 +48,7 @@
                 <div id="carousel" class="carousel slide mb-3" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <?php
-                            $sql = "SELECT * FROM PRODUCT where id = '$id'";
+                            $sql = "SELECT * FROM product where id = '$id'";
                             $query = mysqli_query($con,$sql);
                             $re = mysqli_fetch_assoc($query);
                             $img = explode(",",$re['image']);

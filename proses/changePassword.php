@@ -8,7 +8,7 @@
             $password = password_hash($newpass, PASSWORD_DEFAULT);
             $id = $_SESSION['user']['id'];
             if($repass == $newpass) {
-                $sql = "UPDATE USERS SET password = '$password' where id = '$id'";
+                $sql = "UPDATE users SET password = '$password' where id = '$id'";
                 $query = mysqli_query($con,$sql);
                 $_SESSION['status'] = "success";
                 $_SESSION['msg'] = "Success Change Password";

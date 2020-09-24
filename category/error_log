@@ -1,0 +1,3 @@
+[24-Sep-2020 11:35:14 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/rasposmy/paw.raspos.my.id/category/index.php on line 74
+[24-Sep-2020 11:35:52 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/rasposmy/paw.raspos.my.id/category/index.php on line 74
+[24-Sep-2020 11:40:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/rasposmy/paw.raspos.my.id/category/index.php on line 74

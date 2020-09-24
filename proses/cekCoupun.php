@@ -4,9 +4,10 @@
     $coupun = $_POST['coupun'];
     $grandtotal = $_POST['grandtotal'];
     if(isset($coupun)){
-        $sql = "SELECT * FROM COUPON WHERE name='$coupun'";
+        $sql = "SELECT * FROM coupon WHERE name='$coupun'";
         $query = mysqli_query($con,$sql) or die($sql);
-        if($query) {
+        $n = mysqli_num_rows($query);
+        if($n> 0) {
             $re = mysqli_fetch_assoc($query);
             $disc = $re['disc'];
             if($disc > 99) {
@@ -18,8 +19,9 @@
             $_SESSION['disc'] = $disc;
             $_SESSION['grandtotal'] = $grandtotal;
         } else {
-            $_SESSION['message'] = "success";
+            $_SESSION['disc'] = NULL;
+            $_SESSION['grandtotal'] = NULL;
         }
-        header("location: ".$base_url.'/cart.php');
     }
+    header("location: ".$base_url.'/cart.php');
 ?>

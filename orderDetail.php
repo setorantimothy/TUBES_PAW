@@ -3,12 +3,20 @@
     $user_id = $_SESSION['user']['id'];
     $noOrder = $_GET['id'];
     $id = $_GET['key'];
-    $sql = "SELECT grandtotal,discount,address from orders where id = $id";
+    $sql = "SELECT grandtotal,discount,address,status from orders where id = $id && user_id = $user_id";
     $query = mysqli_query($con,$sql);
-    $re = mysqli_fetch_assoc($query);
-    $gt = $re['grandtotal'];
-    $address = $re['address'];
-    $disc = $re['discount'];
+    $n = mysqli_num_rows($query);
+    if($n>0){
+        $re = mysqli_fetch_assoc($query);
+        $gt = $re['grandtotal'];
+        $address = $re['address'];
+        $disc = $re['discount'];
+        $status = $re['status'];
+    } else {
+        header("location: ".$base_url);
+    }
+    
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +42,29 @@
     <!-- CONTENT -->
     <section class="container my-5" id="main" >
         <h3>Order Detail &nbsp; #<?=$_GET['id'];?></h3>
-        <?=$address;?>
+        <div class="d-flex justify-content-between">
+            <span><?=$address;?></span>
+            <span>
+                Status Pesanan : 
+                    <?php
+                        switch($status) {
+                            case 1:
+                                echo '<span class="badge badge-warning">Waiting for payment</span>';
+                                break;
+                            case 2:
+                                echo '<span class="badge badge-primary">On Process</span>';
+                                break;
+                            case 3:
+                                echo '<span class="badge badge-success">Complete Order</span>';
+                                break;
+                            case 4:
+                                echo '<span class="badge badge-danger">Canceled</span>';
+                                break;
+                        }
+                    ?>
+            </span>
+        </div>
+        
         <div class="row my-4">
             <div class="col-md-12">
                 <table class="text-center table table-dark table-hover table-striped">
@@ -74,7 +104,7 @@
                         }
                     ?>
                         <tr>
-                            <td colspan="3" style="background-color:whitesmoke;color:black" class="text-right">Grandtotal</td>
+                            <td colspan="3" style="background-color:whitesmoke;color:black" class="text-right"><strong>Grandtotal</strong></td>
                             <td><?=number_format($gt);?></td>
                         </tr>
                 </table>

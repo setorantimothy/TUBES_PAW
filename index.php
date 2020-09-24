@@ -65,7 +65,7 @@
 
                         <div class="row my-4">
                         <?php
-                                $sql = "SELECT * FROM PRODUCT  ORDER BY id DESC LIMIT 4";
+                                $sql = "SELECT * FROM product  ORDER BY id DESC LIMIT 4";
                                 $query = mysqli_query($con,$sql);
                                 $n = mysqli_num_rows($query);
                                 if($n<1){
@@ -103,7 +103,7 @@
                         </div>
                         <div class="row my-4">
                         <?php
-                            $sql = "SELECT * FROM PRODUCT ORDER BY RAND() LIMIT 4";
+                            $sql = "SELECT * FROM product ORDER BY RAND() LIMIT 4";
                             $query = mysqli_query($con,$sql);
                             $n = mysqli_num_rows($query);
                             if($n<1){

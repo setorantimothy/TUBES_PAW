@@ -12,17 +12,17 @@
             $discount = 0;
         }
 
-        $sql = "SELECT max(id) as 'id' FROM ORDERS";
+        $sql = "SELECT max(id) as 'id' FROM orders";
         $query = mysqli_query($con,$sql);
         $id = mysqli_fetch_assoc($query)['id']+1;
         $date = date("y-m-d");
         $noOrder = date('Ymd').$id;
         $address = $_POST['address'];
     
-        $sql = "INSERT INTO ORDERS(no_order,grandtotal,discount,user_id,order_date,status,address) VALUES('$noOrder',$grandtotal,$discount,$user_id,'$date',1,'$address')";
+        $sql = "INSERT INTO orders(no_order,grandtotal,discount,user_id,order_date,status,address) VALUES('$noOrder',$grandtotal,$discount,$user_id,'$date',1,'$address')";
         $query = mysqli_query($con,$sql);
     
-        $sql = "SELECT * FROM CART where user_id = $user_id";
+        $sql = "SELECT * FROM cart where user_id = $user_id";
         $query = mysqli_query($con,$sql);
 
         while($re = mysqli_fetch_array($query)) {
@@ -32,11 +32,11 @@
             $variance = $re['variance'];
             $subtotal = $re['subtotal'];
             
-            $s = "INSERT INTO ORDER_DETAILS(order_id,product_id,quantity,variance,subtotal) values ($id,$prod_id,$quantity,'$variance',$subtotal)";
+            $s = "INSERT INTO order_details(order_id,product_id,quantity,variance,subtotal) values ($id,$prod_id,$quantity,'$variance',$subtotal)";
             $q = mysqli_query($con,$s);
         }
 
-        $sql = "DELETE FROM CART WHERE user_id = $user_id";
+        $sql = "DELETE FROM cart WHERE user_id = $user_id";
         $query = mysqli_query($con,$sql);
         $_SESSION['disc'] = NULL;
         $_SESSION['grandtotal'] = NULL;

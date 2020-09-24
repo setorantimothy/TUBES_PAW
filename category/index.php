@@ -69,7 +69,7 @@
 
                         <div class="row my-4">
                             <?php
-                             $sql = "SELECT * FROM PRODUCT  where category_id = (SELECT ID FROM CATEGORY WHERE SLUG = '$activeCategory')";
+                             $sql = "SELECT * FROM product  where category_id = (SELECT ID FROM category WHERE SLUG = '$activeCategory')";
                              $query = mysqli_query($con,$sql);
                              $n = mysqli_num_rows($query);
                              if($n<1){

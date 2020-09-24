@@ -21,7 +21,9 @@
                         ?>
                     </a>
                 </li>
+                
                 <?php
+                    
                     if(isset($_SESSION['isLogin'])){
                         echo '
                         <li class="nav-item dropdown mx-auto">
@@ -36,6 +38,12 @@
                             </div>
                         </li>
                         ';
+                        if($_SESSION['user']['is_admin']){
+                            echo '<li class="nav-item mx-auto">
+                                    <a class="nav-link" href="'.$base_url.'/admin/">Admin Menu</a>
+                                </li>';
+                        }
+                        
                     } else {
                         echo '<li class="nav-item mx-auto">
                         <a class="nav-link" href="'.$base_url.'/login.php">Login</a>

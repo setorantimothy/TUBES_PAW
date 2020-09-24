@@ -29,7 +29,7 @@
         <h3>My Order</h3>   
         <div class="row mt-4">
             <div class="col-md-12">
-                <table class="table table-hovered table-dark table-striped">
+                <table class="table table-responsive table-hovered table-striped">
                     <tr>
                         <th>No Order</th>
                         <th>Date</th>
@@ -73,7 +73,10 @@
                                 }
                             ?>
                         </td>
-                        <td><a href="orderDetail.php?id=<?=$noOrder;?>&key=<?=$id;?>"><i class="fas fa-list-alt"></i> Detail</a></td>
+                        <td>
+                            <a class="btn btn-success btn-sm" href="confirmPayment.php?no_order=<?=$noOrder;?>"><i class="fas fa-credit-card"></i> Verif Payment</a>
+                            <a class="btn btn-primary btn-sm" href="orderDetail.php?id=<?=$noOrder;?>&key=<?=$id;?>"><i class="fas fa-list-alt"></i> Detail</a>
+                        </td>
                     </tr>
                     <?php
                     }

@@ -54,7 +54,7 @@
                     </div>
                     <div class="row container ml-3">
                         <?php
-                            $sql = "SELECT CART.*,CART.id as 'cart_id',PRODUCT.* FROM CART JOIN PRODUCT on PRODUCT.id = CART.product_id WHERE user_id = $user_id";
+                            $sql = "SELECT cart.*,cart.id as 'cart_id',product.* FROM cart JOIN product on product.id = cart.product_id WHERE user_id = $user_id";
                             $query = mysqli_query($con,$sql);
                             $grandtotal = 0;
                             $n = mysqli_num_rows($query);

@@ -3,7 +3,7 @@
 
     $id = $_GET['id'];
     if(isset($id)){
-        $sql = "DELETE FROM CART WHERE id = $id";
+        $sql = "DELETE FROM cart WHERE id = $id";
         $query = mysqli_query($con,$sql);
         if($query) {
             $_SESSION['message'] = "success";

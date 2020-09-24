@@ -1,19 +1,34 @@
 body{
     background-color: whitesmoke;
-}
-.sidebar {
     overflow-x: hidden;
-    transition: 0.5s;
-    margin-left: 0;
 }
-.productSection{
+.sidebar{
+    width: 350px;
+    min-height: 100vh;
     transition: 0.5s;
+    margin-left: 0rem;
+    overflow-x: hidden;
 }
-#main {
-    transition: margin-left .5s ease-in-out;
+.toggledSidebar{
+    margin-left: -7.5rem;
+}
+.sidebar-menu{
+    list-style-type: none;
+    margin-left: -20px;
+    margin-right: 45px;
+}.sidebar-menu li{
+    margin-top: 12px;
+    padding: 8px;
+    word-wrap:break-word;
+}.sidebar-menu li:hover{
+    background-color: #292b2c;
+    opacity: 0.7;
+}.sidebar-menu a{
+    text-decoration: none;
+    color: white;
 }
 .toggled {
-    margin-left: -18rem;
+    width: 50px;
 }
 .extendWidth {
     transition: 0.5s;

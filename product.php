@@ -1,11 +1,11 @@
 <?php
     include 'config.php';
     if(!isset($_GET['q'])){
-        $sql = "SELECT * FROM PRODUCT  ORDER BY id DESC ";
+        $sql = "SELECT * FROM product  ORDER BY id DESC ";
         $activeCategory = 'new_arrival';
     }else {
         $q = $_GET['q'];
-        $sql = "SELECT * FROM PRODUCT where name like'%$q%'";
+        $sql = "SELECT * FROM product where name like'%$q%'";
     }
 ?>
 
