@@ -73,7 +73,7 @@
                                 }
                             ?>
                         </td>
-                        <td><a href="orderDetail.php?id=<?=$noOrder;?>&key=<?=$id;?>">View detail</a></td>
+                        <td><a href="orderDetail.php?id=<?=$noOrder;?>&key=<?=$id;?>"><i class="fas fa-list-alt"></i> Detail</a></td>
                     </tr>
                     <?php
                     }

@@ -3,10 +3,11 @@
     $user_id = $_SESSION['user']['id'];
     $noOrder = $_GET['id'];
     $id = $_GET['key'];
-    $sql = "SELECT grandtotal,discount from orders where id = $id";
+    $sql = "SELECT grandtotal,discount,address from orders where id = $id";
     $query = mysqli_query($con,$sql);
     $re = mysqli_fetch_assoc($query);
     $gt = $re['grandtotal'];
+    $address = $re['address'];
     $disc = $re['discount'];
 ?>
 
@@ -33,6 +34,7 @@
     <!-- CONTENT -->
     <section class="container my-5" id="main" >
         <h3>Order Detail &nbsp; #<?=$_GET['id'];?></h3>
+        <?=$address;?>
         <div class="row my-4">
             <div class="col-md-12">
                 <table class="text-center table table-dark table-hover table-striped">
@@ -75,9 +77,8 @@
                             <td colspan="3" style="background-color:whitesmoke;color:black" class="text-right">Grandtotal</td>
                             <td><?=number_format($gt);?></td>
                         </tr>
-                    
-                        
                 </table>
+                <a href="<?=$base_url;?>/myOrder.php"  role="button" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </section>

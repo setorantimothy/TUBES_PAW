@@ -3,7 +3,11 @@
     $user_id = $_SESSION['user']['id'];
     
     if($_SESSION['user']['address']==null){
+        $_SESSION['msg'] = "fill your address first !";
+        $_SESSION['status'] = "danger";
         header('location: '.$base_url.'/myAccount.php');
+     } else {
+        $address = $_SESSION['user']['name'].' &nbsp;&nbsp; '.$_SESSION['user']['phone_number'].'<br>'.$_SESSION['user']['address'];
     }
 ?>
 
@@ -30,7 +34,7 @@
     <!-- CONTENT -->
     <section class="container mt-4" id="main" >
         <?php 
-        if(isset($_SESSION['message']) && isset($_SESSION['isLogin'])) {
+        if(isset($_SESSION['message'])) {
             echo '<div class="alert alert-'.$_SESSION['message'].'">';
                 if($_SESSION['message']=="success")
                     echo 'Success delete product from cart !';
@@ -98,9 +102,8 @@
             <div class="col-md-4" style="min-height: 100vh;">
                 <div class="card bg-dark">
                     <div class="card-body text-white">
-                        <h6 class="mt-2">Payemnt Info</h6>
-                        <?=$_SESSION['user']['name'];?> &nbsp; &nbsp;<?=$_SESSION['user']['phone_number'];?>
-                            <p><?=$_SESSION['user']['address'];?></p>
+                        <h6 class="mt-2">Payment Info</h6>
+                        <?= $address;?>
                         <hr class="bg-light">
                         <form action="<?=$base_url;?>/proses/cekCoupun.php" method="post" class="mt-5">
                             <div class="row container my-5">
@@ -140,6 +143,7 @@
                             <div class="col-md-12">
                                 <form action="<?=$base_url;?>/checkout.php" method="post">
                                     <input type="hidden" name="grandtotal" value="<?=$grandtotal;?>">
+                                    <input type="hidden" name="address" value="<?=$address;?>">
                                     <button type="submit" name="btn" class="btn-block btn btn-secondary">Checkout</button>
                                 </form> 
                             </div>

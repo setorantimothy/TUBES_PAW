@@ -25,6 +25,13 @@
     <!-- CONTENT -->
     <section class="container mt-4 d-flex justify-content-center" id="main">
        <div class="col-md-5 my-4">
+            <?php 
+                if(isset($_SESSION['status']) && $_SESSION['status']=="FAILED")
+                    echo '<div class="alert alert-danger text-center">'.$_SESSION['message'].'</div>';
+                    //init message , when refresh message doesnt show
+                    $_SESSION['message']= null;
+                    $_SESSION['status']= null;
+            ?>
            <div class="card rounded shadow">
                <div class="card-header text-white bg-info"><h5>Register</h5></div>
                <div class="card-body">

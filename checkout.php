@@ -17,8 +17,9 @@
         $id = mysqli_fetch_assoc($query)['id']+1;
         $date = date("y-m-d");
         $noOrder = date('Ymd').$id;
+        $address = $_POST['address'];
     
-        $sql = "INSERT INTO ORDERS(no_order,grandtotal,discount,user_id,order_date,status) VALUES('$noOrder',$grandtotal,$discount,$user_id,'$date',1)";
+        $sql = "INSERT INTO ORDERS(no_order,grandtotal,discount,user_id,order_date,status,address) VALUES('$noOrder',$grandtotal,$discount,$user_id,'$date',1,'$address')";
         $query = mysqli_query($con,$sql);
     
         $sql = "SELECT * FROM CART where user_id = $user_id";
