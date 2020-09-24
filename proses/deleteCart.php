@@ -1,5 +1,6 @@
 <?php
-    include '../config.php';
+    require_once '../cekLogin.php';
+
     $id = $_GET['id'];
     if(isset($id)){
         $sql = "DELETE FROM CART WHERE id = $id";

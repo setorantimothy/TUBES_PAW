@@ -29,8 +29,8 @@
                                 '.$_SESSION['user']['name'].'
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Order</a>
-                                <a class="dropdown-item" href="#">Account</a>
+                                <a class="dropdown-item" href="'.$base_url.'/myOrder.php">Order</a>
+                                <a class="dropdown-item" href="'.$base_url.'/myAccount.php">Account</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="'.$base_url.'/logout.php">Logout</a>
                             </div>

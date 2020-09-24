@@ -1,5 +1,6 @@
 <?php
-    include ('../config.php');
+    require_once '../cekLogin.php';
+
 
     if(isset($_POST['variance']) && isset($_SESSION['isLogin'])) {
         $id = $_POST['id'];

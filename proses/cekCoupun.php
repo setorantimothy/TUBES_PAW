@@ -1,5 +1,6 @@
 <?php
-    include '../config.php';
+    require_once '../cekLogin.php';
+
     $coupun = $_POST['coupun'];
     $grandtotal = $_POST['grandtotal'];
     if(isset($coupun)){
