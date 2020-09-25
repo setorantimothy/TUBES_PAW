@@ -14,7 +14,7 @@
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <title>BRAND NAME</title>
+    <title>REGISTER - BRAND NAME</title>
 </head>
 <body>
     <!-- NAVBAR  -->
