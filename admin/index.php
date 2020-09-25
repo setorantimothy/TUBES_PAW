@@ -27,16 +27,14 @@
 
     <!-- CONTENT -->
     <section id="main">
-        <div class="row col-md-12">
-            <div>
-                <?php
-                    include 'sidebar.php';
-                ?>
-            </div>
-            <div class="col" id="content">
+        <div class="row">
+            <?php
+                include 'sidebar.php';
+            ?>
+            <div id="content" class="col-md-12">
                 <div class="mt-4">
                     <div class="row mx-auto">
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Products</div>
                                     <div class="card-body">
@@ -49,7 +47,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Active Users</div>
                                     <div class="card-body">
@@ -62,7 +60,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Orders</div>
                                     <div class="card-body">
@@ -75,7 +73,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Income</div>
                                     <div class="card-body">
@@ -88,7 +86,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Category</div>
                                     <div class="card-body">
@@ -101,7 +99,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                             <div class="card bg-light mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Coupons</div>
                                     <div class="card-body">

@@ -2,17 +2,20 @@ body{
     background-color: whitesmoke;
     overflow-x: hidden;
 }
-#menuCategory{
-}
 .sidebar{
-    width: 350px;
+    z-index: -2;
+    position: absolute;
+    width: 19rem;
     min-height: 100vh;
     transition: 0.5s;
-    margin-left: 0rem;
+    margin-left: -18rem;
     overflow-x: hidden;
+    transition: 0.5s;
 }
 .toggledSidebar{
-    margin-left: -7.5rem;
+    z-index:100;
+    transition: 0.5s;
+    margin-left: 0;
 }
 .sidebar-menu{
     list-style-type: none;

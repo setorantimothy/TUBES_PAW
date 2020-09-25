@@ -3,7 +3,7 @@
         <div class="card-body text-white">
             <div class="d-flex justify-content-between">
                 <h6 class="mt-2">Category</h6>
-                <button class="btn btn-dark" data-toggle="collapse" data-target="#menuCategory" aria-expanded="false" aria-controls="menuCategory"><i class="fas fa-bars"></i></button>
+                <button class="btn btn-dark d-none" id="btnCategory" data-toggle="collapse" data-target="#menuCategory" aria-expanded="false" aria-controls="menuCategory"><i class="fas fa-bars"></i></button>
             </div>
             <hr class="bg-light">
 
@@ -11,6 +11,8 @@
                 window.onload = function() {
                     if(screen.width < 860){
                         const sidebar = document.querySelector("#menuCategory");
+                        const btn = document.querySelector("#btnCategory");
+                        btn.classList.add('d-block');
                         sidebar.classList.add('collapse');
                     }
                 }

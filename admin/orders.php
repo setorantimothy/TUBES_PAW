@@ -27,16 +27,14 @@
 
     <!-- CONTENT -->
     <section id="main">
-        <div class="row col-md-12">
-            <div>
-                <?php
-                    include 'sidebar.php';
-                ?>
-            </div>
-            <div class="col" id="content">
-                <div class="mt-4">
+        <div class="row">
+            <?php
+                include 'sidebar.php';
+            ?>
+            <div class="container" id="content">
+                <div class="mt-4 container">
                     <h2>Orders : </h2><hr>
-                    <table class="table table-reponsive table-striped table-hover">
+                    <table class="table table-responsive table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>No Order</th>

@@ -27,78 +27,60 @@
 
     <!-- CONTENT -->
     <section id="main">
-        <div class="row col-md-12">
-            <div>
-                <?php
-                    include 'sidebar.php';
-                ?>
-            </div>
-            <div class="col" id="content">
-                <div class="mt-4">
+        <div class="row">
+            <?php
+                include 'sidebar.php';
+            ?>
+            <div class="container" id="content">
+                <div class="mt-4 container">
                     <h2>Orders : </h2><hr>
-                    <table class="table table-reponsive table-striped table-hover">
+                    <a href="<?=$base_url;?>/admin/formProduct.php?key=Add" class="btn btn-success mb-2 btn-sm"><i class="fas fa-plus"></i> Product</a href="<?=$base_url;?>/admin/formProduct.php">
+                    <table class="table table-responsive table-hover">
                         <thead>
                             <tr>
-                                <th>No Order</th>
-                                <th>Date</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Grandtotal</th>
-                                <th>Discount</th>
-                                <th>Status</th>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Category</th>
+                                <th>Stocks</th>
                                 <th>Action</th>
                             </tr>
                         </thead>    
                         <tbody>
                             <?php
-                                $sql = "select o.id as 'order_id' ,o.*,u.* from orders o join users u
-                                ON o.user_id = u.id ORDER BY o.id DESC";
+                                $sql = "select p.*,c.name as 'category' from product p 
+                                join category c 
+                                on p.category_id = c.id";
                                 $query = mysqli_query($con,$sql);
+                                $no = 0;
                                 while($re = mysqli_fetch_assoc($query)){
-                                    $no_order = $re['no_order'];
-                                    $order_id = $re['order_id'];
-                                    $date = $re['order_date'];
-                                    $grandtotal = $re['grandtotal'];
-                                    $discount = $re['discount'];
-                                    $address = $re['address'];
-                                    $status = $re['status'];
-                                    $email = $re['email'];
-                                    $id = $re['order_id']
+                                    $no = $no++;
+                                    $id = $re['id'];
+                                    $name = $re['name'];
+                                    $description = $re['description'];
+                                    $image = $re['image'];
+                                    $category = $re['category'];
+                                    $stocks = $re['stocks'];
+                                    $price = $re['price']
                                 ?>
                             <tr>
-                                <td>#<?=$no_order;?></td>
-                                <td><?=$date;?></td>
-                                <td><?=$email;?></td>
-                                <td><?=$address;?></td>
-                                <td><?=$grandtotal;?></td>
-                                <td><?=$discount;?></td>
+                                <td>#<?=$no;?></td>
+                                <td><?=$name;?></td>
+                                <td><?=$description;?></td>
+                                <td><?=number_format($price);?></td>
+                                <td><a href="#" onclick="showGalery('<?=$name;?>','<?=$image;?>')" >Show <i class="fas fa-images"></i></a></td>
+                                <td><?=$category;?></td>
+                                <td><?=$stocks;?></td>
                                 <td>
-                                    <?php
-                                        switch($status) {
-                                            case 1:
-                                                echo '<span class="badge badge-warning">Waiting for payment</span>';
-                                                break;
-                                            case 2:
-                                                echo '<span class="badge badge-primary">On Process</span>';
-                                                break;
-                                            case 3:
-                                                echo '<span class="badge badge-success">Complete Order</span>';
-                                                break;
-                                            case 0:
-                                                echo '<span class="badge badge-danger">Canceled</span>';
-                                                break;
-                                        }
-                                    ?>
-                                </td>
-                                <td>
-                                    <a class="btn btn-dark btn-sm mb-1 mr-1" href="orderProses.php?id=<?=$id;?>"><i class="fas fa-list-alt"></i> Detail</a>
-                                    <a class="btn btn-success btn-sm mb-1 mr-1" href="orderProses.php?id=<?=$id;?>&status=3"><i class="fas fa-check-circle"></i> Complete</a>
-                                    <a class="btn btn-primary btn-sm mb-1 mr-1" href="orderProses.php?id=<?=$id;?>&status=2"><i class="fas fa-hourglass-half"></i> Proses</a>
-                                    <a class="btn btn-danger btn-sm mb-1 mr-1" href="orderProses.php?id=<?=$id;?>&status=0"><i class="fas fa-times"></i> Cancel</a>
+                                    <a class="btn btn-primary btn-sm mb-1 mr-1" href="<?=$base_url;?>/admin/formProduct.php?key=Update&id=<?=$id;?>"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-danger btn-sm mb-1 mr-1" onclick="del('<?=$id;?>')"><i class="fas fa-trash"></i></a>
 
                                 </td>
                             </tr>
                             <?php
+                                $no++;
                                 }
                             ?>
                         </tbody>
@@ -106,8 +88,6 @@
                 </div>
             </div>
         </div>
-        
-            
         </div>
     </section>
     <script>
@@ -116,6 +96,65 @@
             const content = document.querySelector("#content");
             sidebar.classList.toggle('toggledSidebar');
         }
+
+        function del(id){
+            if(confirm("Yakin ingin menghapus ?") == true) {
+                window.location.href="productProses.php?id="+id+"&key=delete";
+            }
+        }
+        function showGalery(param1,param2){
+            var i;
+            $("#modalTitle").text(param1);
+
+            let indicator = $("#carousel-indicators");
+            let img = $("#carousel-image");
+            var images = param2.split(",");
+            var url = window.location.origin+'/paw/tubes/assets/img/';
+            img.html('<div class="carousel-item active"><img class="d-block w-100" src="'+url+images[0]+'" alt="First slide"></div>');
+            indicator.html('<li data-target="#galeryModal" data-slide-to="0" class="active"></li>')
+            for(i=1; i < images.length ; i ++){
+                img.append('<div class="carousel-item"><img class="d-block img-fluid slider-product" src="'+url+images[i]+'" alt="First slide"></div>');
+                indicator.append('<li data-target="#galeryModal" data-slide-to="'+i+'"></li>');
+            }
+            if(images.length < 2) {
+                $("#carousel-control").addClass('d-none');
+            }
+            $("#galeryModal").modal('show');            
+        }
     </script>
+
+<div class="modal fade modal-md" id="galeryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <div id="galeryModalIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators" id="carousel-indicators">
+                        
+                    </ol>
+                    <div class="carousel-inner" id="carousel-image">
+                        
+                    </div>
+                    <div id="carousel-control">
+                        <a class="carousel-control-prev bg-dark" href="#galeryModalIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next bg-dark" href="#galeryModalIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
 </body>
 </html>

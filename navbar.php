@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+        <?php
+            if(isset($_SESSION['isLogin']) && $_SESSION['user']['is_admin'] && (strpos($_SERVER['PHP_SELF'],'admin'))) 
+                echo'<button class="btn btn-dark mr-2" onclick="sidebarToggle()"><i class="fas fa-list"></i></button>';
+        ?>
         <a class="navbar-brand" href="<?=$base_url;?>"><strong> BRAND NAME</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2020 at 01:18 PM
+-- Generation Time: Sep 25, 2020 at 07:14 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -43,7 +43,11 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `variance`, `subtotal`) VALUES
 (42, 8, 7, 1, 'L', 26700),
-(44, 8, 16, 1, 'XS', 26700);
+(44, 8, 16, 1, 'XS', 26700),
+(46, 8, 5, 1, 'XL', 26700),
+(47, 8, 5, 2, 'XS', 53400),
+(48, 6, 5, 1, 'L', 32000),
+(49, 3, 4, 1, 'XS', 90000);
 
 -- --------------------------------------------------------
 
@@ -79,6 +83,30 @@ INSERT INTO `category` (`id`, `slug`, `name`, `parent_id`) VALUES
 (14, 'woman_luaran', 'Luaran', 5),
 (15, 'kids_boy', 'Boy', 6),
 (16, 'kids_girl', 'girl', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `confirm_payment`
+--
+
+CREATE TABLE `confirm_payment` (
+  `id` int(11) NOT NULL,
+  `no_order` int(25) NOT NULL,
+  `date` datetime NOT NULL,
+  `transfer_to` text NOT NULL,
+  `transfer_from` text NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `confirm_payment`
+--
+
+INSERT INTO `confirm_payment` (`id`, `no_order`, `date`, `transfer_to`, `transfer_from`, `image`) VALUES
+(1, 202009241, '2020-09-24 02:12:09', 'BANK CENTRAL ASIA', 'asdas', '520-09-24Capture.PNG'),
+(2, 202009241, '2020-09-25 05:12:11', 'BANK CENTRAL ASIA', 'asdas', '520-09-24Capture.PNG'),
+(3, 202009241, '2020-09-25 20:10:14', 'BANK RAKYAT INDONESIA', '12312321', '5-20-09-24background_5k.jpg');
 
 -- --------------------------------------------------------
 
@@ -147,14 +175,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `no_order`, `grandtotal`, `discount`, `user_id`, `order_date`, `status`, `address`) VALUES
-(1, '202009241', 26700, 0, 5, '2020-09-24', 4, NULL),
-(2, '202009242', 26700, 0, 5, '2020-09-24', 3, NULL),
-(3, '202009243', 116700, 0, 5, '2020-09-24', 2, NULL),
-(4, '202009244', 26700, 0, 5, '2020-09-24', 1, NULL),
-(5, '202009245', 218700, 10000, 5, '2020-09-24', 1, NULL),
-(6, '202009246', 16700, 10000, 5, '2020-09-24', 1, NULL),
-(7, '202009247', 56000, 0, 5, '2020-09-24', 1, NULL),
-(8, '202009248', 26700, 0, 5, '2020-09-24', 1, 'Aquila Mclaughlin    +1 (213) 808-32<br>Jl. Surga');
+(1, '202009241', 90000, 0, 5, '2020-09-24', 2, 'Eras    +1 (213) 808-32<br>Jl. Surga Durka murhaka');
 
 -- --------------------------------------------------------
 
@@ -176,13 +197,7 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `variance`, `subtotal`) VALUES
-(1, 4, 8, 1, 'XS', 26700),
-(2, 5, 8, 1, 'XS', 26700),
-(3, 5, 7, 1, 'XS', 112000),
-(4, 5, 3, 1, 'XS', 90000),
-(5, 6, 8, 1, 'XS', 26700),
-(6, 7, 1, 1, 'XL', 56000),
-(7, 8, 8, 1, 'XS', 26700);
+(1, 1, 3, 1, 'XS', 90000);
 
 -- --------------------------------------------------------
 
@@ -205,11 +220,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `image`, `category_id`, `price`, `stocks`) VALUES
-(1, 'test aja', 'test aja', '1.jpg', 2, 56000, 4),
-(3, 'test 1 ', 'loha loha loha', 'baju4.jpg,baju2.jpg,baju3.jpg', 3, 90000, 4),
-(6, '2 test', '12312321', '2.jpg', 2, 32000, 3),
-(7, 'd324', '12312321', '3.jpg', 2, 112000, 1),
-(8, '334', '45000', 'user.jpg', 2, 26700, 43);
+(1, 'Orla Owens', 'Qui minima sapiente ', '1.jpg', 14, 37200, 40),
+(3, 'test 1 ', 'loha loha loha', 'baju4.jpg,baju2.jpg,baju3.jpg', 3, 90000, 2),
+(6, '2 test', '12312321', '2.jpg', 2, 32000, 2),
+(8, '334', '45000', 'user.jpg', 2, 26700, 40),
+(9, 'Whitney Mcmillan', 'Dolores eligendi mol', 'elle-zhu-O_uV3KhQuo8-unsplash.jpg,lubo-minar-3K6ZkYBj2Xo-unsplash.jpg,nathan-anderson-roZgc7SXXmI-unsplash.jpg', 12, 884, 69),
+(10, 'Pandora Meyer', 'Dolor totam ut omnis', '235812212-20-09-25Circle-icons-computer.svg.png,1113341032-20-09-25Settings-512.png,1727594508-20-09-25Spotify Flat.png,253375755-20-09-25youtube flat.png', 7, 475, 39);
 
 -- --------------------------------------------------------
 
@@ -236,8 +252,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone_number`, `address
 (1, 'Ferris Byers', 'xefazud@mailinator.com', '$2y$10$v7xGqNj1L5USMh/dt6tTqOAw6lI21D/IjBAxeluZXg3SamMt7jQcq', '+1 (657) 522-69', NULL, 0, 0),
 (2, 'Karina Adkins', 'tusiged@mailinator.com', '$2y$10$bj2DAKRw.SL4RlKKRiyr.OmieX4XV6Tg0bU7jwU80bN5TbwWScyu6\r\n\r\n$2y$10$wBQKdMpGFzqtkPeQb/JhYOnaXKwTHAnB3fIKVxc0jj.HGr9s/yy36', '+1 (982) 881-11', NULL, 0, 0),
 (3, 'Jamalia Oneill', 'zyxywudax@mailinator.com', '$2y$10$Sxl3nL0chanAqptBpgzByu2FZzyAJhZQamImi48yevNh7BCCXxm1i', '+1 (315) 454-37', NULL, 0, 0),
-(4, 'Kai Sharpe', 'duda@mailinator.com', '$2y$10$UDviotGnsKlHum8uCn1Eue9mFy6lEdsq4/RCG.r4KLvalhFuOMuxq', '+1 (584) 367-95', NULL, 1, 0),
-(5, 'Aquila Mclaughlin', 'eras@admin.com', '$2y$10$qP4XOlbMb2.ilgSIVtXvoeLmtiH.mV.aE1TpSMdSRUU7zPxdPi3UK', '+1 (213) 808-32', 'Jl. Surga Durka murhaka', 1, 1),
+(4, 'Kai Sharpe', 'duda@mailinator.com', '$2y$10$UDviotGnsKlHum8uCn1Eue9mFy6lEdsq4/RCG.r4KLvalhFuOMuxq', '+1 (584) 367-95', 'asda', 1, 0),
+(5, 'Eras', 'eras@admin.com', '$2y$10$vqMX1wg2duHbkx.lDmCmFO7SAVTYItWffp4.h8FBZA6lOOVIdTmiC', '+1 (213) 808-32', 'Jl. Surga Durka murhaka', 1, 1),
 (6, 'Declan Park', 'cecuxixa@mailinator.com', '$2y$10$TQZ0lnBQmquqkH0WguPKgutSr0NbC70EHErHY0RlCSqKvnQMDEKBO', '+1 (873) 757-88', NULL, 0, 0),
 (7, 'Christian Dudley', 'fawobaror@mailinator.com', '$2y$10$sJVIOz9TELeAyfABYilFq.uquT8/iismUMPQS3zpvC4gFqQN61QD2', '+1 (566) 207-19', NULL, 1, 0),
 (8, 'Jena Cabrera', 'lemyceke@mailinator.com', '$2y$10$5Bs43hUhagft9GcTV80/6up1l9jeR2PKSorSdaLQlvmCsyvKXgYE6', '+1 (426) 162-24', '   <br>latitude &nbsp; longtitude:', 0, 0),
@@ -267,6 +283,12 @@ ALTER TABLE `cart`
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `confirm_payment`
+--
+ALTER TABLE `confirm_payment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `coupon`
@@ -316,13 +338,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `confirm_payment`
+--
+ALTER TABLE `confirm_payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `coupon`
@@ -340,19 +368,19 @@ ALTER TABLE `email_verification`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

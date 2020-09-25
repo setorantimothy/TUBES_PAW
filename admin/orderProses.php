@@ -44,7 +44,7 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/script.js" defer></script>
     
-    <title>DASHBOARD ADMIN PAGE - BRAND NAME</title>
+    <title>Order Detail #<?=$_GET['id'];?> - BRAND NAME</title>
 </head>
 <body>
     <!-- NAVBAR  -->
@@ -54,14 +54,12 @@
 
     <!-- CONTENT -->
     <section id="main">
-        <div class="row col-md-12">
-            <div>
-                <?php
-                    include 'sidebar.php';
-                ?>
-            </div>
-            <div class="col" id="content">
-                <div class="mt-4">
+        <div class="row">
+            <?php
+                include 'sidebar.php';
+            ?>
+            <div class="mt-4 container" id="content">
+                <div class="container">
                     <h3>Order Detail &nbsp; #<?=$_GET['id'];?></h3>
                     <div class="d-flex justify-content-between">
                         <span><?=$address;?></span>

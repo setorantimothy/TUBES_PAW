@@ -27,14 +27,12 @@
 
     <!-- CONTENT -->
     <section id="main">
-        <div class="row col-md-12">
-            <div>
-                <?php
-                    include 'sidebar.php';
-                ?>
-            </div>
-            <div class="col" id="content">
-                <div class="mt-4">
+        <div class="row">
+            <?php
+                include 'sidebar.php';
+            ?>
+            <div class="container" id="content">
+                <div class="mt-4 container">
                     <?php
                         if(isset($_SESSION['status'])){
                             echo '<div class="alert alert-'.$_SESSION['status'].'">'.$_SESSION['message'].'</div>';
@@ -43,7 +41,7 @@
                         }
                     ?>
                     <h2>Payment Confirmation : </h2><hr>
-                    <table class="table table-reponsive table-striped table-hover">
+                    <table class="table table-responsive table-hover">
                         <thead>
                             <tr>
                                 <th>No Order</th>

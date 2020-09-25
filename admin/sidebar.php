@@ -1,9 +1,8 @@
-<div class="sidebar bg-dark w-100" id="sidebar">
+<div class="sidebar bg-dark" id="sidebar">
     <div class="pt-4 text-white d-flex justify-content-between">
-        <h3 class="ml-3">Menu</h3>
-        <button class="btn btn-dark mr-2" onclick="sidebarToggle()"><i class="fas fa-list"></i></button>
+        <h3 class="ml-5">Menu</h3>
     </div>
-    <div class="container mt-5 bg-default">
+    <div class="container mt-4 ml-2 bg-default">
         <ul class="sidebar-menu">
             <a href="<?=$base_url;?>/admin/" role="button"><li><i class="fa fa-tachometer"></i> &nbsp;Dashboard</li></a>
             <a href="<?=$base_url;?>/admin/orders.php" role="button"><li><i class="fas fa-shopping-bag"></i> &nbsp;Orders</li></a>
