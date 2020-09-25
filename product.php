@@ -38,7 +38,7 @@
             ?>
 
             <!-- SECTION CONTENT -->
-            <div class="col-9 col-md-9 productSection" id="productSection" >
+            <div class="col-md-9 productSection" id="productSection" >
                 <div class="row">
                     <div class="col-md-12">
                         <div id="carousel" class="carousel slide mb-3" data-ride="carousel">

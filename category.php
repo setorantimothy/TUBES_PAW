@@ -1,12 +1,21 @@
-<div class="sidebar col-md-3 col-3" id="sidebar" >
-    <div class="card bg-dark">
+<div class="col-md-3">
+    <div class="card bg-dark mb-3" id="categeoryMenu">
         <div class="card-body text-white">
             <div class="d-flex justify-content-between">
                 <h6 class="mt-2">Category</h6>
-                <!-- <button class="btn btn-dark" id="sidebar-btn" onclick="sidebarToggle()"><i class="fas fa-bars"></i></button> -->
-            </div>    
-            <hr class="bg-light mb-5">
-            <ul class="container ml-3" style="list-style: none;">
+                <button class="btn btn-dark" data-toggle="collapse" data-target="#menuCategory" aria-expanded="false" aria-controls="menuCategory"><i class="fas fa-bars"></i></button>
+            </div>
+            <hr class="bg-light">
+
+            <script>
+                window.onload = function() {
+                    if(screen.width < 860){
+                        const sidebar = document.querySelector("#menuCategory");
+                        sidebar.classList.add('collapse');
+                    }
+                }
+            </script>    
+            <ul class="mt-2 container ml-3" id="menuCategory" style="list-style: none;" >
                 <li class="my-4">
                     <a href="<?=$base_url;?>/product.php" class="<?php if($activeCategory=="new_arrival")echo 'bg-secondary p-1';?> text-white">New Arrival </a>
                 </li>

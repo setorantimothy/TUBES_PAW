@@ -3,6 +3,7 @@ function sidebarToggle(){
     sidebar.classList.toggle('toggledSidebar');
 }
 
+
 function showPassword(){
     var pass = document.getElementById("password");
     if(pass.type == "password") {
