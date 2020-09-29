@@ -20,7 +20,7 @@ function addToCart(param) {
         const variance = document.querySelector("#variance");
         $.post('/proses/addToCart.php',
         {
-            id = variance.value,
+            id : variance.value,
         },
         function(data,status){
             alert(data);

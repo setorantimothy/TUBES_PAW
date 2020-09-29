@@ -8,6 +8,7 @@
             <a href="<?=$base_url;?>/admin/orders.php" role="button"><li><i class="fas fa-shopping-bag"></i> &nbsp;Orders</li></a>
             <a href="<?=$base_url;?>/admin/payments.php" role="button"><li><i class="fas fa-credit-card"></i> &nbsp;Payment Confirmation</li></a>
             <a href="<?=$base_url;?>/admin/products.php" role="button"><li><i class="fas fa-cubes"></i> &nbsp;Products</li></a>
+            <a href="<?=$base_url;?>/admin/coupons.php" role="button"><li><i class="fas fa-money"></i> &nbsp;Coupons</li></a>
         </ul>
     </div>
 </div>

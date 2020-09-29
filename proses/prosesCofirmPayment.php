@@ -8,8 +8,9 @@
         $no_order = $_POST['no_order'];
         $transfer_to = $_POST['transfer_to'];
         $transfer_from = $_POST['transfer_from'];
+        $date  = date('Y-m-d h:i:s');
         
-        $sql = "INSERT INTO confirm_payment(no_order,transfer_to,transfer_from,image)values($no_order,'$transfer_to','$transfer_from','$file_name')";
+        $sql = "INSERT INTO confirm_payment(no_order,date,transfer_to,transfer_from,image)values($no_order,'$date','$transfer_to','$transfer_from','$file_name')";
         $query = mysqli_query($con,$sql) or die("ERROR".$sql);
         if($query) {
             move_uploaded_file($_FILES['receipt']['tmp_name'],$destination);

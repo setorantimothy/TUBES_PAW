@@ -35,7 +35,7 @@
     ?>
     
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
                     <form action="<?=$base_url;?>/proses/changeAccount.php" method="post">
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
                     <form action="<?=$base_url;?>/proses/changePassword.php" method="post">
@@ -92,7 +92,7 @@
                                 <p>Old Password </p>
                             </div>
                             <div class="col-md-6">
-                                <input type="password"  required name="oldpass" id="password" class="pass form-control">
+                                <input type="password"  required name="oldpass" class="pass form-control">
                             </div>
                         </div>
                         <div class="row ml-3 mb-2">
@@ -108,12 +108,12 @@
                                 <label>Re-type new password </label>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" required name="repass" id="password"  required class="pass form-control">
+                                <input type="password" required name="repass" required class="pass form-control">
                             </div>
                         </div>
                         
                         <div class="row ml-4 mt-4">
-                
+                            
                             <div class="col-md-11 text-right">
                                 <button class="text-center btn btn-dark">Ubah Password</button>
                             </div>    

@@ -97,16 +97,19 @@
                                                 while($re = mysqli_fetch_assoc($query)){
                                                     $pid = $re['id'];
                                                     $pname = $re['name'];
-                                                        $sql2 = "SELECT id,name from category where parent_id='$pid' order by name ASC";
-                                                        $query2 = mysqli_query($con,$sql2);
-                                                            if(isset($category) && $category!="" && $key=="Update" && $category==$pid){
-                                                                echo '
-                                                                <option selected value="'.$pid.'"><--'.$pname.'--></option>';
-                                                            }
-                                                            else {
-                                                                echo '
-                                                                <option value="'.$pid.'"><--'.$pname.'--></option>';
-                                                            }
+                                                        if($pid!=NULL){
+                                                            $sql2 = "SELECT id,name from category where parent_id='$pid' order by name ASC";
+                                                            $query2 = mysqli_query($con,$sql2);
+                                                                if(isset($category) && $category!="" && $key=="Update" && $category==$pid){
+                                                                    echo '
+                                                                    <option selected value="'.$pid.'"><--'.$pname.'--></option>';
+                                                                }
+                                                                else {
+                                                                    echo '
+                                                                    <option value="'.$pid.'"><--'.$pname.'--></option>';
+                                                                }
+                                                        }
+                                                        
 
                                                         while($rec = mysqli_fetch_assoc($query2)){
                                                             $cid = $rec['id'];

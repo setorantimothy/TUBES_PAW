@@ -67,15 +67,18 @@
                                     case 3:
                                         echo '<span class="badge badge-success">Complete Order</span>';
                                         break;
-                                    case 4:
+                                    case 0:
                                         echo '<span class="badge badge-danger">Canceled</span>';
                                         break;
                                 }
                             ?>
                         </td>
                         <td>
-                            <a class="btn btn-success btn-sm" href="confirmPayment.php?no_order=<?=$noOrder;?>"><i class="fas fa-credit-card"></i> Verif Payment</a>
                             <a class="btn btn-primary btn-sm" href="orderDetail.php?id=<?=$noOrder;?>&key=<?=$id;?>"><i class="fas fa-list-alt"></i> Detail</a>
+                            <?php
+                            if($status == 1)
+                                echo '<a class="btn btn-success btn-sm" href="confirmPayment.php?no_order='.$noOrder.'"><i class="fas fa-credit-card"></i> Verif Payment</a>'
+                            ?>
                         </td>
                     </tr>
                     <?php

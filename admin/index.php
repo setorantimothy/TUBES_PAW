@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
-                            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Category</div>
                                     <div class="card-body">
                                         <?php
@@ -109,6 +109,32 @@
                                             $coupon = mysqli_fetch_assoc($query)['coupon'];
                                         ?>
                                         <h5 class="card-title text-center"><?=$coupon;?> Coupon</h5>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 text-white">
+                            <div class="card bg-warning mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Product Sold</div>
+                                    <div class="card-body">
+                                        <?php
+                                            $sql="select count(product_id) as 'sold' from order_details";
+                                            $query= mysqli_query($con,$sql);
+                                            $sold = mysqli_fetch_assoc($query)['sold'];
+                                        ?>
+                                        <h5 class="card-title text-center"><?=$sold;?> Items</h5>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 text-white">
+                            <div class="card bg-secondary mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Item Sold</div>
+                                    <div class="card-body">
+                                        <?php
+                                            $sql="select sum(quantity) as 'sold' from order_details";
+                                            $query= mysqli_query($con,$sql);
+                                            $sold = mysqli_fetch_assoc($query)['sold'];
+                                        ?>
+                                        <h5 class="card-title text-center"><?=$sold;?> Items</h5>
                                     </div>
                             </div>
                         </div>

@@ -41,6 +41,13 @@
                         }
                     ?>
                     <h2>Payment Confirmation : </h2><hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div class="ml-auto">
+                            <form action="" method="get">
+                                <input type="text" name="q" class="form-control" placeholder="search no order..">
+                            </form>
+                        </div>
+                    </div>
                     <table class="table table-responsive table-hover">
                         <thead>
                             <tr>
@@ -56,7 +63,12 @@
                             <?php
                                 $sql = "select cp.*,o.id as 'order_id' from confirm_payment cp
                                 JOIN orders o
-                                ON o.no_order = cp.no_order where o.status=1 ORDER BY order_id DESC";
+                                ON o.no_order = cp.no_order where o.status=1 ";
+                                if(isset($_GET['q'])){
+                                    $q = $_GET['q'];
+                                    $sql = $sql." and CAST(cp.no_order as CHAR) like '%$q%' ";
+                                }
+                                $sql = $sql."ORDER BY order_id DESC";
                                 $query = mysqli_query($con,$sql);
                                 while($re = mysqli_fetch_assoc($query)){
                                     $no_order = $re['no_order'];

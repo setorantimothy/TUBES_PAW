@@ -33,8 +33,15 @@
             ?>
             <div class="container" id="content">
                 <div class="mt-4 container">
-                    <h2>Orders : </h2><hr>
-                    <a href="<?=$base_url;?>/admin/formProduct.php?key=Add" class="btn btn-success mb-2 btn-sm"><i class="fas fa-plus"></i> Product</a href="<?=$base_url;?>/admin/formProduct.php">
+                    <h2>Products : </h2><hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <a href="<?=$base_url;?>/admin/formProduct.php?key=Add" class="btn btn-success mb-2 btn-sm"><i class="fas fa-plus"></i> Product</a href="<?=$base_url;?>/admin/formProduct.php">
+                        <div class="ml-auto">
+                            <form action="" method="get">
+                                <input type="text" name="q" class="form-control" placeholder="search..">
+                            </form>
+                        </div>
+                    </div>
                     <table class="table table-responsive table-hover">
                         <thead>
                             <tr>
@@ -51,10 +58,14 @@
                         <tbody>
                             <?php
                                 $sql = "select p.*,c.name as 'category' from product p 
-                                join category c 
-                                on p.category_id = c.id";
+                                        join category c 
+                                        on p.category_id = c.id";
+                                if(isset($_GET['q'])){
+                                    $q = $_GET['q'];
+                                    $sql = $sql." where p.name like '%$q%' or p.description like '%$q%' or c.name like '%$q%'";
+                                }
                                 $query = mysqli_query($con,$sql);
-                                $no = 0;
+                                $no = 1;
                                 while($re = mysqli_fetch_assoc($query)){
                                     $no = $no++;
                                     $id = $re['id'];

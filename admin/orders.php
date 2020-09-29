@@ -34,6 +34,13 @@
             <div class="container" id="content">
                 <div class="mt-4 container">
                     <h2>Orders : </h2><hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div class="ml-auto">
+                            <form action="" method="get">
+                                <input type="text" name="q" class="form-control" placeholder="search ..">
+                            </form>
+                        </div>
+                    </div>
                     <table class="table table-responsive table-striped table-hover">
                         <thead>
                             <tr>
@@ -50,7 +57,12 @@
                         <tbody>
                             <?php
                                 $sql = "select o.id as 'order_id' ,o.*,u.* from orders o join users u
-                                ON o.user_id = u.id ORDER BY o.id DESC";
+                                ON o.user_id = u.id ";
+                                if(isset($_GET['q'])){
+                                    $q = $_GET['q'];
+                                    $sql = $sql."where CAST(o.no_order as CHAR) like '%$q%' or u.email like'%$q%' or u.address like '%$q%'";
+                                }
+                                $sql = $sql." ORDER BY o.id DESC";
                                 $query = mysqli_query($con,$sql);
                                 while($re = mysqli_fetch_assoc($query)){
                                     $no_order = $re['no_order'];
