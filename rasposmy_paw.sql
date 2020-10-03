@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 25, 2020 at 06:11 PM
+-- Generation Time: Oct 03, 2020 at 06:06 AM
 -- Server version: 10.2.33-MariaDB
 -- PHP Version: 7.3.6
 
@@ -42,7 +42,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `variance`, `subtotal`) VALUES
-(8, 8, 2, 1, 'XS', 74900);
+(8, 8, 2, 1, 'XS', 74900),
+(9, 10, 2, 2, 'M', 111110),
+(10, 10, 2, 1, 'XL', 55555);
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,39 @@ CREATE TABLE `email_verification` (
 
 INSERT INTO `email_verification` (`id`, `user_id`, `status`, `verif_key`, `verified_date`) VALUES
 (1, 1, 0, 'd2311812fbf1d8a40be8970c37f0ce7d', NULL),
-(2, 2, 0, '0d4ce7b9b90c17e9ef366adfbb9c10a1', NULL);
+(2, 2, 0, '0d4ce7b9b90c17e9ef366adfbb9c10a1', NULL),
+(3, 3, 1, '28b3755295c84773f71aa5ede020d414', '2020-09-25'),
+(4, 4, 1, 'b16faca3ec923baff750af52e3923bde', '2020-09-25'),
+(5, 5, 1, '158017449379ade6fd67d43d5fc26213', '2020-09-26'),
+(6, 6, 0, 'ffeaa49acf61f3aea5a7eceedbc26492', NULL),
+(7, 7, 0, 'b533112c0822668c8bc00d15a483bc63', NULL),
+(8, 8, 0, '883ee679a30841c593d1b32ac38f00b0', NULL),
+(9, 9, 0, '0d791605ca81d3d21126aff1a5bac041', NULL),
+(10, 10, 0, '3a2ddba3c67ccea610861244a5256212', NULL),
+(11, 11, 0, 'd950d4278bd52641d3e76626890c96b8', NULL),
+(12, 12, 0, 'ef0a0d16a75b1af8b3284f9ee51a4420', NULL),
+(13, 13, 0, '88eaceaa0c4067e1b9e5015ffa4068cf', NULL),
+(14, 14, 0, 'bde99eeeae50096ff2351d3322ce6389', NULL),
+(15, 15, 0, 'b342eff8fbd3513ae03861e96f962960', NULL),
+(16, 16, 0, '1d4043ae32f76f6c20d83709a6e6d332', NULL),
+(17, 17, 0, 'aa6eaa770351d47d86e4adf739b91651', NULL),
+(18, 18, 0, '778fd5fcb950bf90c0bb63bbc5bab4b7', NULL),
+(19, 19, 0, 'e92e4d98d54053d948400757bd30def6', NULL),
+(20, 20, 0, '4f5edd1cbea547a3607d3790ec651559', NULL),
+(21, 21, 0, '086d948c816c0b7b58dd2d65b85b7c3d', NULL),
+(22, 22, 0, '7d33f9b1b30e88aba82c69bb39ff1065', NULL),
+(23, 23, 0, 'aed5a27b4e0d7aa5ef8a08c997bd2f7a', NULL),
+(24, 24, 1, '21b1b487a1778ea2346744ac53775e4d', '2020-09-29'),
+(25, 25, 0, 'b3d243a69592b06562f398c7d9c05564', NULL),
+(26, 26, 1, 'e933fee13aa262dfd66958ddec39acfa', '2020-09-30'),
+(27, 27, 0, '2cbe508440d0d4b9b386b413a463a5b4', NULL),
+(28, 28, 0, '4ee338678cc752f8d829f5b81acdebbd', NULL),
+(29, 29, 0, 'f311999ddc047d07d8795ff4404d70a9', NULL),
+(30, 30, 0, '8fadd6b56681dab42ad0386117d49a53', NULL),
+(31, 31, 0, 'b5c1142d0712e6bb17bcb18cebb89ab1', NULL),
+(32, 32, 0, '4320027a73e14e7a6ca1eb240b14b216', NULL),
+(33, 33, 1, 'f583f1052c17691ee699eac3d6a66176', '2020-10-03'),
+(34, 34, 0, '6a26c1ea7e2c52409d8301a9336fd609', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,8 +259,8 @@ INSERT INTO `product` (`id`, `name`, `description`, `image`, `category_id`, `pri
 (5, 'Wynne Blair', 'Est maiores voluptat', '955905997-20-09-256142589_1e8ed387-8c2b-4e52-876c-dc9105154049_1536_1536.jpeg,1651289617-20-09-25screenplay-8789-7377381-1.jpg,1696775275-20-09-25kaos-printing-galaxy-spilled-milk-wb-700x700.jpg', 1, 88900, 79),
 (6, 'Karen Parrish', 'Ex praesentium maxim', '189864993-20-09-25a22f18e40980f287547c43a84d73cb91.jpeg,256055773-20-09-25hemmeh-9979-5985851-1.jpg', 9, 32300, 17),
 (7, 'Kiayada Savage', 'Magnam quibusdam rer', '2006970468-20-09-25PAKAIAN_WANITA_OVERALL_BAJU_WANITA_BUSANA_WANITA_GAMIS_BLOUS.jpg', 14, 20800, 22),
-(8, 'Sylvia Frye', 'Quo minima est moles', '760081587-20-09-25fbbf9913396a3e9aad13e1e6da1d6303.jpg,492625384-20-09-25blouse_ema__pakaian_wanita__baju_wanita_1527697954_819d2dea.jpg,617493154-20-09-25154028932_031520aa-7305-4c4c-9eff-b309a8cd0956_768_768.jpg', 2, 74900, 9),
-(10, 'Malcolm Mills', 'Libero quod similiqu', '1819397120-20-09-25baju1.png,26421327-20-09-25baju2.jpg,1065008215-20-09-25baju3.jpg,1920939731-20-09-25baju4.jpg', 3, 55555, 4);
+(8, 'Sylvia Frye', 'Quo minima est moles', '760081587-20-09-25fbbf9913396a3e9aad13e1e6da1d6303.jpg,492625384-20-09-25blouse_ema__pakaian_wanita__baju_wanita_1527697954_819d2dea.jpg,617493154-20-09-25154028932_031520aa-7305-4c4c-9eff-b309a8cd0956_768_768.jpg', 2, 74900, 8),
+(10, 'Malcolm Mills', 'Libero quod similiqu', '1819397120-20-09-25baju1.png,26421327-20-09-25baju2.jpg,1065008215-20-09-25baju3.jpg,1920939731-20-09-25baju4.jpg', 3, 55555, 1);
 
 -- --------------------------------------------------------
 
@@ -242,16 +276,20 @@ CREATE TABLE `users` (
   `phone_number` varchar(15) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `is_verified` int(1) NOT NULL DEFAULT 0,
-  `is_admin` int(1) NOT NULL DEFAULT 0
+  `is_admin` int(1) NOT NULL DEFAULT 0,
+  `last_login` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone_number`, `address`, `is_verified`, `is_admin`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$WHQiEVStx7pAYt2N3kmR3OKkvZz9Y4eyV.lrme6VlHHdE5d5vWb0u', '08982866621', 'Pontianak West Kalimantan  Indonesia<br>latitude-0.031 &nbsp; longtitude:109.3257', 1, 1),
-(2, 'user', 'user@user.com', '$2y$10$wg1hZnmv4eYDqNFc4aWVDePDiGbpMqxfleYa58SEQg1zG8lybbs7C', '081223451231', 'Pontianak West Kalimantan  Indonesia<br>latitude-0.031 &nbsp; longtitude:109.3257', 1, 0);
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone_number`, `address`, `is_verified`, `is_admin`, `last_login`) VALUES
+(1, 'Admin', 'admin@admin.com', '$2y$10$WHQiEVStx7pAYt2N3kmR3OKkvZz9Y4eyV.lrme6VlHHdE5d5vWb0u', '08982866621', 'Pontianak West Kalimantan  Indonesia<br>latitude-0.031 &nbsp; longtitude:109.3257', 1, 1, '2020-09-29 11:22:38'),
+(2, 'user', 'user@user.com', '$2y$10$wg1hZnmv4eYDqNFc4aWVDePDiGbpMqxfleYa58SEQg1zG8lybbs7C', '081223451231', 'Pontianak West Kalimantan  Indonesia<br>latitude-0.031 &nbsp; longtitude:109.3257', 1, 0, NULL),
+(4, 'rum', 'rum@1secmail.com', '$2y$10$u2teeNoeq6Mmt15nZ/LS/.OZNPCzeAP1JIA0CJHY8/1n5xUTcNbui', '12312312312', 'Singapore   Singapore<br>latitude1.3325 &nbsp; longtitude:103.8816', 1, 0, NULL),
+(5, 'Hop Golden', 'sewah@1secmail.com', '$2y$10$1xWR7YDZmICySznecyKv/uANqCsVrxdlZzljdCxrAfmxvnCUvesUO', '+1 (772) 306-57', 'Jl. Juicy loved by me', 1, 0, NULL),
+(34, 'Eras Timothy', 'setorantimothy@gmail.com', '$2y$10$/Swk/gb.hRRIZxPrv48MhudgJbPQN9ZntFJz4mxhibQOjNmWOc71u', '087721230725', 'Pontianak West Kalimantan  Indonesia<br>latitude-0.031 &nbsp; longtitude:109.3257', 0, 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -324,7 +362,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -348,7 +386,7 @@ ALTER TABLE `coupon`
 -- AUTO_INCREMENT for table `email_verification`
 --
 ALTER TABLE `email_verification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -372,7 +410,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

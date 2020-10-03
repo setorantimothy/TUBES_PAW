@@ -1,9 +1,9 @@
 <?php
 
-$con = mysqli_connect('localhost','root','','tubes_paw') or die('Error Connection !');
+$con = mysqli_connect('localhost','rasposmy_root','0FEfmN+$bxGp','rasposmy_paw') or die('Error Connection !');
 if($con) {
     //your folder name to index;
-    $base_url = "http://".$_SERVER['SERVER_NAME'].'/paw/tubes';
+    $base_url = "https://".$_SERVER['SERVER_NAME'];
     session_start();
     $activeCategory = "";
     if(isset($_SESSION['isLogin'])) {
